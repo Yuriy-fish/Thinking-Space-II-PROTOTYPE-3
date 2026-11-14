@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GeoAnalog Matchmaker — Integrated planetary analog intelligence platform for mission planning and scientific research. Discover Earth analogs for Moon and Mars targets." />
+    <meta name="theme-color" content="#0A111B" />
+    <meta name="color-scheme" content="dark light" />
+    <meta property="og:title" content="GeoAnalog Matchmaker — Planetary Analog Intelligence" />
+    <meta property="og:description" content="Find Earth's closest analogs to the Moon and Mars using NASA-first scientific datasets, MCDA scoring, and high-fidelity planetary geospatial visualization." />
+    <meta property="og:type" content="website" />
+    <title>GeoAnalog Matchmaker — Planetary Analog Intelligence</title>
+    
+    <!-- Preconnect Google Fonts for Space Grotesk, Inter, and IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- MapLibre GL CSS -->
+    <link rel="stylesheet" href="/node_modules/maplibre-gl/dist/maplibre-gl.css" />
+  </head>
+  <body>
+    <div id="app" role="main" aria-live="polite" aria-label="GeoAnalog Matchmaker application">
+      <noscript>
+        <div style="padding:2rem;text-align:center;font-family:system-ui,sans-serif;color:#ccc;background:#0A111B;">
+          <h1>GeoAnalog Matchmaker</h1>
+          <p>JavaScript is required to run this application.</p>
+        </div>
+      </noscript>
+    </div>
+    <div id="modal-root" aria-hidden="true"></div>
+    <script>
+      // Friendly protocol detector if opened via file:// instead of http://localhost:5173
+      if (window.location.protocol === 'file:') {
+        document.addEventListener('DOMContentLoaded', () => {
+          const app = document.getElementById('app');
+          if (app) {
+            app.innerHTML = `
+              <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0A111B;color:#F0F6FC;font-family:'Space Grotesk',system-ui,sans-serif;padding:2rem;">
+                <div style="max-width:620px;background:#182638;border:1px solid #48D6E7;border-radius:12px;padding:2.5rem;box-shadow:0 12px 40px rgba(0,0,0,0.6);text-align:center;">
+                  <div style="font-size:3rem;margin-bottom:1rem;">🪐</div>
+                  <h2 style="color:#48D6E7;font-size:1.6rem;margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:1px;">Vite Local Server Required</h2>
+                  <p style="color:#8B949E;line-height:1.6;margin-bottom:1.5rem;font-size:1.05rem;">
+                    You opened this file directly via <code style="background:#0D1724;padding:2px 8px;border-radius:4px;color:#E58B52;">file:///</code>. Modern web applications using ES Modules and planetary map shaders require an HTTP server.
+                  </p>
+                  <div style="background:#0D1724;border:1px dashed #30363D;border-radius:8px;padding:1.2rem;margin-bottom:1.5rem;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:0.95rem;">
+                    <p style="color:#7EE787;margin:0 0 6px 0;">⚡ Server is currently active!</p>
+                    <p style="color:#C9D1D9;margin:0;">Open in your browser:</p>
+                    <a href="http://localhost:5173" style="color:#48D6E7;font-size:1.2rem;font-weight:600;text-decoration:underline;display:inline-block;margin-top:6px;">http://localhost:5173</a>
+                  </div>
+                  <p style="color:#8B949E;font-size:0.85rem;margin:0;">
+                    Click the link above or type <strong>http://localhost:5173</strong> into your browser address bar.
+                  </p>
+                </div>
+              </div>
+            `;
+          }
+        });
+      }
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
